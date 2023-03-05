@@ -9,7 +9,16 @@ describe('My Login application', () => {
         await expect(SecurePage.flashAlert).toBeExisting()
         await expect(SecurePage.flashAlert).toHaveTextContaining(
             'You logged into a secure area!')
-    })
+    });
+
+    it('should be log out and verify by alert message',()=>{
+    const btnLogout = $('a[href="/logout]');
+    const flashAlert = $('#flash');
+
+    btnLogout.click();
+
+        expect(flashAlert).toHaveTextContaining('You Logged out of the area');
+    });
 })
 
 
